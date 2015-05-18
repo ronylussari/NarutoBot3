@@ -9,9 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NarutoBot3</RootNamespace>
     <AssemblyName>NarutoBot3</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -22,16 +22,17 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <SupportUrl>https://github.com/Ricardo1991/NarutoBot3</SupportUrl>
     <TargetCulture>en</TargetCulture>
+    <ProductName>NarutoBot3</ProductName>
     <PublisherName>Ricardo Ribeiro</PublisherName>
-    <ApplicationRevision>5</ApplicationRevision>
-    <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>4.5.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -61,24 +62,46 @@
     <ManifestCertificateThumbprint>021801B3F6D495A537A09EC3F7534F63EDC64816</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>NarutoBot3_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ric.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="HtmlAgilityPack">
       <HintPath>..\..\RedditSharp-master\HtmlAgilityPack.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\RedditSharp-master\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -87,155 +110,139 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Hammock">
+      <HintPath>..\packages\Hammock.1.3.1\lib\4.0\Hammock.dll</HintPath>
+    </Reference>
+    <Reference Include="Hammock.ClientProfile">
+      <HintPath>..\packages\Hammock.1.3.1\lib\4.0\Hammock.ClientProfile.dll</HintPath>
+    </Reference>
+    <Reference Include="TweetSharp">
+      <HintPath>..\packages\TweetSharp.2.3.1\lib\4.0\TweetSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bot.cs" />
-    <Compile Include="GoogleSearch.cs" />
-    <Compile Include="assignments.cs">
+    <Compile Include="colorScheme.cs" />
+    <Compile Include="JSON and XML classes\GiphyResult.cs" />
+    <Compile Include="JSON and XML classes\GoogleSearch.cs" />
+    <Compile Include="Forms\ConnectWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="assignments.Designer.cs">
-      <DependentUpon>assignments.cs</DependentUpon>
-    </Compile>
-    <Compile Include="claims.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="claims.Designer.cs">
-      <DependentUpon>claims.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ConnectWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConnectWindow.Designer.cs">
+    <Compile Include="Forms\ConnectWindow.Designer.cs">
       <DependentUpon>ConnectWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="enabledCommands.cs">
+    <Compile Include="Forms\SettingsWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="enabledCommands.Designer.cs">
-      <DependentUpon>enabledCommands.cs</DependentUpon>
+    <Compile Include="Forms\SettingsWindow.Designer.cs">
+      <DependentUpon>SettingsWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="eta.cs">
+    <Compile Include="Greetings.cs" />
+    <Compile Include="Forms\HelpTextWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="eta.Designer.cs">
-      <DependentUpon>eta.cs</DependentUpon>
+    <Compile Include="Forms\HelpTextWindow.Designer.cs">
+      <DependentUpon>HelpTextWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="getCompilationDate.cs" />
-    <Compile Include="Greeting.cs" />
-    <Compile Include="help.cs">
+    <Compile Include="IRC_Client.cs" />
+    <Compile Include="Forms\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="help.Designer.cs">
-      <DependentUpon>help.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IrcClient.cs" />
-    <Compile Include="MainWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainWindow.Designer.cs">
+    <Compile Include="Forms\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="muted.cs">
+    <Compile Include="Forms\MutedUsersWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="muted.Designer.cs">
-      <DependentUpon>muted.cs</DependentUpon>
+    <Compile Include="Forms\MutedUsersWindow.Designer.cs">
+      <DependentUpon>MutedUsersWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="myAnimeListAnime.cs" />
-    <Compile Include="nick.cs">
+    <Compile Include="JSON and XML classes\MAL_Anime.cs" />
+    <Compile Include="Forms\ChangeBotNickWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="nick.Designer.cs">
-      <DependentUpon>nick.cs</DependentUpon>
+    <Compile Include="Forms\ChangeBotNickWindow.Designer.cs">
+      <DependentUpon>ChangeBotNickWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Message.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Stats.cs" />
+    <Compile Include="UserList.cs" />
+    <Compile Include="JSON and XML classes\YoutubeVideoInfo.cs" />
     <Compile Include="NickGen.cs" />
-    <Compile Include="operators.cs">
+    <Compile Include="Forms\BotOperatorWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="operators.Designer.cs">
-      <DependentUpon>operators.cs</DependentUpon>
+    <Compile Include="Forms\BotOperatorWindow.Designer.cs">
+      <DependentUpon>BotOperatorWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="pastMessage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RedditCredentials.cs">
+    <Compile Include="Forms\MangaReleaseCheckerWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RedditCredentials.Designer.cs">
-      <DependentUpon>RedditCredentials.cs</DependentUpon>
+    <Compile Include="Forms\MangaReleaseCheckerWindow.Designer.cs">
+      <DependentUpon>MangaReleaseCheckerWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="RleaseChecker.cs">
+    <Compile Include="Forms\EditRulesWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RleaseChecker.Designer.cs">
-      <DependentUpon>RleaseChecker.cs</DependentUpon>
+    <Compile Include="Forms\EditRulesWindow.Designer.cs">
+      <DependentUpon>EditRulesWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="rules.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="rules.Designer.cs">
-      <DependentUpon>rules.cs</DependentUpon>
-    </Compile>
-    <Compile Include="searchAnimeAPI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="searchAnimeAPI.Designer.cs">
-      <DependentUpon>searchAnimeAPI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TimeZoneAPI.cs" />
-    <Compile Include="truncate.cs" />
-    <EmbeddedResource Include="assignments.resx">
-      <DependentUpon>assignments.cs</DependentUpon>
+    <Compile Include="JSON and XML classes\GoogleTimeZone.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="JSON and XML classes\YoutubeSearch.cs" />
+    <Compile Include="Useful.cs" />
+    <Compile Include="YoutubeUseful.cs" />
+    <EmbeddedResource Include="Forms\AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="claims.resx">
-      <DependentUpon>claims.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConnectWindow.resx">
+    <EmbeddedResource Include="Forms\ConnectWindow.resx">
       <DependentUpon>ConnectWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="enabledCommands.resx">
-      <DependentUpon>enabledCommands.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SettingsWindow.resx">
+      <DependentUpon>SettingsWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="eta.resx">
-      <DependentUpon>eta.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\HelpTextWindow.resx">
+      <DependentUpon>HelpTextWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="help.resx">
-      <DependentUpon>help.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainWindow.resx">
+    <EmbeddedResource Include="Forms\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="muted.resx">
-      <DependentUpon>muted.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MutedUsersWindow.resx">
+      <DependentUpon>MutedUsersWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="nick.resx">
-      <DependentUpon>nick.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ChangeBotNickWindow.resx">
+      <DependentUpon>ChangeBotNickWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="operators.resx">
-      <DependentUpon>operators.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\BotOperatorWindow.resx">
+      <DependentUpon>BotOperatorWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <EmbeddedResource Include="RedditCredentials.resx">
-      <DependentUpon>RedditCredentials.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MangaReleaseCheckerWindow.resx">
+      <DependentUpon>MangaReleaseCheckerWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RleaseChecker.resx">
-      <DependentUpon>RleaseChecker.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rules.resx">
-      <DependentUpon>rules.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="searchAnimeAPI.resx">
-      <DependentUpon>searchAnimeAPI.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EditRulesWindow.resx">
+      <DependentUpon>EditRulesWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="NarutoBot3_TemporaryKey.pfx" />
     <None Include="packages.config" />
@@ -248,38 +255,50 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\Icon-16x16-warn.png" />
+    <None Include="Resources\profile_github.png" />
+    <None Include="Resources\Close_icon.png" />
+    <None Include="Resources\ico_info.png" />
+    <None Include="Resources\black-connected-16.png" />
+    <None Include="Resources\black-disconnected-16 %281%29.png" />
+    <Content Include="TextFiles\funk.txt" />
+    <Content Include="TextFiles\quotes.txt" />
+    <Content Include="Theme\Cool.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Theme\Monokai.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="banned.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="help.txt">
+    <Content Include="TextFiles\help.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="icon.ico" />
-    <Content Include="kills.txt">
+    <Content Include="TextFiles\kills.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="ops.txt">
+    <Content Include="TextFiles\rules.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="rules.txt">
+    <Content Include="TextFiles\nickGen.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="text.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="trivia.txt">
+    <Content Include="TextFiles\trivia.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\GitHub\RedditSharp\RedditSharp\RedditSharp.csproj">
-      <Project>{a368cb75-75f0-4489-904d-b5cebb0fe624}</Project>
+      <Project>{A368CB75-75F0-4489-904D-B5CEBB0FE624}</Project>
       <Name>RedditSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoComplete\AutoComplete.csproj">
+      <Project>{88b1a2d4-0b5f-4586-92df-878e37f855f4}</Project>
+      <Name>AutoComplete</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -298,6 +317,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

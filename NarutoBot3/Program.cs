@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using NarutoBot3.Properties;
+using System;
 using System.Windows.Forms;
-using NarutoBot3.Properties;
 
 namespace NarutoBot3
 {
@@ -15,11 +12,16 @@ namespace NarutoBot3
         [STAThread]
         static void Main()
         {
+            if (Settings.Default.UpdateSettings)
+            {
+                Settings.Default.Upgrade();
+                Settings.Default.UpdateSettings = false;
+                Settings.Default.Save();
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainWindow());
-
-
         }
     }
 }
